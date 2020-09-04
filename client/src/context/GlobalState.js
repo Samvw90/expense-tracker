@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 import AppReducer from './AppReducer';
 import axios from 'axios';
 
@@ -70,6 +70,10 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
+
+  useEffect(() => {
+    getTransactions();
+  }, []);
 
   return (
     <GlobalContext.Provider
